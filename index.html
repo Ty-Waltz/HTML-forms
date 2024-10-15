@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form</title>
+</head>
+<body>
+    <form aria-labelledby="formTitle">
+        <h1 id="formTitle">User Feedback Form</h1>
+        <figure>
+            <label for="user-email">Email:</label>
+            <input type="email" id="user-email" name="user-email" placeholder="Enter your email" required aria-required="true">
+            
+        </figure>
+
+        <figure>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="99" placeholder="Enter the quantity" required aria-required="true">
+           
+        </figure>
+
+        <figure>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required aria-required="true">
+            
+        </figure>
+
+        <figure>
+            <label for="rating">Rate our service (1-10):</label>
+            <input type="range" id="rating" name="rating" min="1" max="10" value="5" 
+                   aria-valuemin="1" 
+                   aria-valuemax="10" 
+                   aria-valuenow="5" 
+                   aria-label="Rating scale from 1 to 10" 
+                   oninput="document.getElementById('rangeValue').innerText = this.value">
+            <p>Selected Rating: <span id="rangeValue">5</span></p>
+            
+        </figure>
+
+        <figure>
+            <label for="color">Choose your preferred color:</label>
+            <input type="radio" id="red" name="color" value="red" checked aria-labelledby="redLabel">
+            <label id="redLabel" for="red">Red</label>
+            <input type="radio" id="blue" name="color" value="blue" aria-labelledby="blueLabel">
+            <label id="blueLabel" for="blue">Blue</label>
+           
+        </figure>
+
+        <figure>
+            <label for="program">Choose your preferred programming language:</label>
+            <input type="radio" id="javascript" name="program" value="javascript" checked aria-labelledby="javascriptLabel">
+            <label id="javascriptLabel" for="javascript">JavaScript</label>
+            <input type="radio" id="python" name="program" value="python" aria-labelledby="pythonLabel">
+            <label id="pythonLabel" for="python">Python</label>
+            <input type="radio" id="C++" name="program" value="C++" aria-labelledby="cppLabel">
+            <label id="cppLabel" for="C++">C++</label>
+            <input type="radio" id="java" name="program" value="java" aria-labelledby="javaLabel">
+            <label id="javaLabel" for="java">Java</label>
+            
+        </figure>
+
+        <figure>
+            <label for="experience">What is your experience with this language?</label>
+            <input type="radio" id="great" name="experience" value="great" aria-labelledby="greatLabel">
+            <label id="greatLabel" for="great">Great</label>
+            <input type="radio" id="average" name="experience" value="average" aria-labelledby="averageLabel" checked>
+            <label id="averageLabel" for="average">Average</label>
+            <input type="radio" id="poor" name="experience" value="poor" aria-labelledby="poorLabel">
+            <label id="poorLabel" for="poor">Poor</label>
+        </figure>
+
+        <figure>
+            <label for="platform">What platform do you like to use?</label>
+            <input type="checkbox" id="mobile" name="platform" value="mobile" aria-labelledby="mobileLabel">
+            <label id="mobileLabel" for="mobile">Mobile</label>
+            <input type="checkbox" id="web" name="platform" value="web" aria-labelledby="webLabel">
+            <label id="webLabel" for="web">Web</label>
+            <input type="checkbox" id="desktop" name="platform" value="desktop" aria-labelledby="desktopLabel">
+            <label id="desktopLabel" for="desktop">Desktop</label>
+            
+        </figure>
+        <figure>
+            <button type="submit">Submit</button>
+        </figure>
+    </form>
+
+    <script> 
+        document.getElementById('rating').addEventListener('input', function()
+        {document.getElementById('rangeValue').textContent = this.value;}); 
+    </script>
+</body> <!--had to look up a script to show the selected rating for the range-->
+</html>
